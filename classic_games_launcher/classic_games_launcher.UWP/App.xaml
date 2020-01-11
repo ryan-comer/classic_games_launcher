@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="classic_games_launcher.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:classic_games_launcher.UWP"
+    RequestedTheme="Light">
+
+</Application>

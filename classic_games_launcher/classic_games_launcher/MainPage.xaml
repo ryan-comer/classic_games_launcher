@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:comp="clr-namespace:classic_games_launcher.components"
+             mc:Ignorable="d"
+             x:Class="classic_games_launcher.MainPage"
+             >
+    
+    <StackLayout>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            BackgroundColor="#EEEEEE">
+            <ContentView
+                Padding="5"
+                >
+                <Image
+                Source="https://ctl.s6img.com/society6/img/4RvBTdfHPBs-GV4P9wTkokYkWfI/w_700/prints/~artwork/s6-0076/a/30719631_10714835/~~/retro-joystick-prints.jpg"
+                HeightRequest="80"/>
+            </ContentView>
+            <Label
+                Padding="25, 0, 0, 0"
+                VerticalOptions="Center"
+                Text="Emulation Station"
+                FontSize="50"
+                HorizontalOptions="StartAndExpand"/>
+            <ContentView
+                Padding="0, 5, 0, 5"
+                >
+                <BoxView
+                    BackgroundColor="Gray"
+                    WidthRequest="2"
+                />
+            </ContentView>
+            <Button
+                CornerRadius="5"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="#EEEEEE"
+                Text="Platforms"
+                FontSize="Title"/>
+        </StackLayout>
+        <StackLayout>
+            <comp:PlatformSelector/>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
