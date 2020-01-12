@@ -7,24 +7,42 @@
              x:Class="classic_games_launcher.pages.GameListPage">
 
     <StackLayout>
-        <StackLayout
-            Orientation="Horizontal"
+        <RelativeLayout
+            HeightRequest="100"
             >
             <Image
                 Source="{Binding ImageProperty}"
                 Aspect="AspectFit"
-                HeightRequest="200"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
-                />
-            <Label
-                Text="{Binding PlatformNameProperty}"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                FontSize="50"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=1
+                }"
+            />
+            <StackLayout
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1
+                }"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=1
+                }"
+                Orientation="Horizontal"
                 >
-            </Label>
-        </StackLayout>
+                <Label
+                    Text="{Binding PlatformNameProperty}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    FontSize="50"
+                    >
+                </Label>
+            </StackLayout>
+        </RelativeLayout>
         <BoxView
                 Margin="0, 10, 0, 20"
                 Color="Black"
