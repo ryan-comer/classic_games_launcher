@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:comp="clr-namespace:classic_games_launcher.components"
+             xmlns:pages="clr-namespace:classic_games_launcher.pages"
              mc:Ignorable="d"
              x:Class="classic_games_launcher.MainPage"
              >
@@ -35,14 +35,17 @@
                 />
             </ContentView>
             <Button
+                Clicked="PlatformButtonClicked"
                 CornerRadius="5"
                 VerticalOptions="FillAndExpand"
                 BackgroundColor="#EEEEEE"
                 Text="Platforms"
                 FontSize="Title"/>
         </StackLayout>
-        <StackLayout>
-            <comp:PlatformSelector/>
+        <StackLayout
+            x:Name="MainContent"
+            >
+            <pages:PlatformSelector/>
         </StackLayout>
     </StackLayout>
     

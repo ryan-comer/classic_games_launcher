@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+using classic_games_launcher.pages;
+
 namespace classic_games_launcher
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -16,6 +18,22 @@ namespace classic_games_launcher
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        public void SetContent(View newView)
+        {
+            MainContent.Children.Clear();
+            MainContent.Children.Add(newView);
+        }
+
+        // User clicked the platforms button
+        private void PlatformButtonClicked(object sender, EventArgs e)
+        {
+            View contentView = MainContent.Children[0];
+            if(contentView.GetType() != typeof(PlatformSelector))
+            {
+                SetContent(new PlatformSelector());
+            }
         }
     }
 }

@@ -16,8 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="components\PlatformSelector.xaml">
+    <EmbeddedResource Update="pages\PlatformSelector.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="pages\GameListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="components\" />
   </ItemGroup>
 </Project>

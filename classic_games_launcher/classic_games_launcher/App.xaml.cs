@@ -9,7 +9,6 @@ namespace classic_games_launcher
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 
