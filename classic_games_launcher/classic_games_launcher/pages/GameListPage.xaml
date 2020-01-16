@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:util="clr-namespace:classic_games_launcher.utils"
              mc:Ignorable="d"
              x:Class="classic_games_launcher.pages.GameListPage">
 
@@ -10,17 +11,21 @@
         <RelativeLayout
             HeightRequest="100"
             >
-            <Image
-                Source="{Binding ImageProperty}"
-                Aspect="AspectFit"
-                HorizontalOptions="Start"
-                VerticalOptions="Center"
-                RelativeLayout.HeightConstraint="{ConstraintExpression
-                    Type=RelativeToParent,
-                    Property=Height,
-                    Factor=1
-                }"
-            />
+            <ContentView
+                Margin="75, 0, 0, 0"
+                >
+                <Image
+                    Source="{Binding Image}"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=1
+                    }"
+                />
+            </ContentView>
             <StackLayout
                 RelativeLayout.WidthConstraint="{ConstraintExpression
                     Type=RelativeToParent,
@@ -35,7 +40,7 @@
                 Orientation="Horizontal"
                 >
                 <Label
-                    Text="{Binding PlatformNameProperty}"
+                    Text="{Binding PlatformName}"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center"
                     FontSize="50"
@@ -52,6 +57,22 @@
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Center"
                 />
+        
+        <!-- LIST OF GAMES IN FLEXBOX -->
+        <FlexLayout x:Name="gameFlex"
+                    BindableLayout.ItemsSource="{Binding GamesListViewModel.GamesList}"
+                    JustifyContent="Start"
+                    AlignItems="Center"
+                    Wrap="Wrap"
+                    >
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout FlexLayout.Basis="25%">
+                        <Label Text="{Binding Name}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
     </StackLayout>
 
 </ContentView>

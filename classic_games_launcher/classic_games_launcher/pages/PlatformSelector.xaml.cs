@@ -1,4 +1,5 @@
-﻿using System;
+﻿using classic_games_launcher.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,24 +8,26 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using classic_games_launcher.models;
+
 namespace classic_games_launcher.pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlatformSelector : ContentView
     {
 
-        string name;
+        Platform platform;
         string image;
 
-        public string Name
+        public Platform GamePlatform
         {
             get
             {
-                return name;
+                return platform;
             }
             set
             {
-                name = value;
+                platform = value;
             }
         }
         public string Image 
@@ -35,7 +38,7 @@ namespace classic_games_launcher.pages
             }
             set
             {
-                name = value;
+                image = value;
             }
         }
 
@@ -51,32 +54,32 @@ namespace classic_games_launcher.pages
             {
                 new PlatformSelector
                 {
-                    name = "Gamecube",
+                    GamePlatform = models.Platform.GAMECUBE,
                     image = "https://i.ya-webdesign.com/images/game-cube-logo-png-15.png"
                 },
                 new PlatformSelector
                 {
-                    name = "Playstation 2",
+                    GamePlatform = models.Platform.PLAYSTATION_2,
                     image = "http://icons.iconarchive.com/icons/sykonist/console/256/Playstation-2-black-icon.png"
                 },
                 new PlatformSelector
                 {
-                    name = "Wii",
+                    GamePlatform = models.Platform.WII,
                     image = "https://cdn2.iconfinder.com/data/icons/electrical-devices-2/60/devices-flat-055-wii-512.png"
                 },
                 new PlatformSelector
                 {
-                    name = "Wii U",
+                    GamePlatform = models.Platform.WIIU,
                     image = "https://image.flaticon.com/icons/png/512/39/39462.png"
                 },
                 new PlatformSelector
                 {
-                    name = "Gameboy Advance",
+                    GamePlatform = models.Platform.GAMEBOY_ADVANCE,
                     image = "https://cdn2.iconfinder.com/data/icons/the-evolution-of-consoles-game/64/gameboy_advance_copy-512.png"
                 },
                 new PlatformSelector
                 {
-                    name = "Nintendo 64",
+                    GamePlatform = models.Platform.NINTENDO_64,
                     image = "https://www.pngkey.com/png/detail/226-2267265_n64-icon-nintendo-64-logo-png.png"
                 }
             };
@@ -97,7 +100,7 @@ namespace classic_games_launcher.pages
             // Go to the new page
 
             ((MainPage)App.Current.MainPage).SetContent(new classic_games_launcher.pages.GameListPage(
-                name,
+                platform,
                 image
                 ));
         }
