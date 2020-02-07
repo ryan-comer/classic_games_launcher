@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using classic_games_launcher.models;
-using classic_games_launcher.view_models;
-using classic_games_launcher.data_sources;
+using classic_games_launcher.models.view_models;
+using classic_games_launcher.data.data_sources;
 using classic_games_launcher.utils;
 
 using Xamarin.Forms;
@@ -18,14 +18,13 @@ namespace classic_games_launcher.pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameListPage : ContentView, INotifyPropertyChanged
     {
-        Platform GamePlatform { get; set; }
-        public string Image { get; set; }
+        int GamePlatform { get; set; }
 
         public string PlatformName
         {
             get
             {
-                return EnumToString.PlatformEnumToString(GamePlatform) + " Games";
+                return "Temp";
             }
         }
 
@@ -46,10 +45,9 @@ namespace classic_games_launcher.pages
             }
         }
 
-        public GameListPage(Platform platform, string image)
+        public GameListPage(int platform)
         {
             this.GamePlatform = platform;
-            this.Image = image;
 
             InitializeComponent();
             BindingContext = this;
@@ -58,9 +56,9 @@ namespace classic_games_launcher.pages
         }
 
         // Populate games by platform
-        private void populateGames(Platform platform)
+        private async void populateGames(int platform)
         {
-            var games = GamesSource.GetGamesByPlatform(platform);
+            var games = await GamesSource.GetGamesByPlatform(platform);
             List<GameViewModel> gameModels = new List<GameViewModel>();
             foreach(var game in games)
             {

@@ -24,7 +24,7 @@
                 VerticalOptions="Center"
                 />
             <ScrollView>
-                <FlexLayout BindableLayout.ItemsSource="{x:Static local:PlatformSelector.All}"
+                <FlexLayout BindableLayout.ItemsSource="{Binding PlatformList.ViewModels}"
                     JustifyContent="Start"
                     AlignItems="Center"
                     Wrap="Wrap">

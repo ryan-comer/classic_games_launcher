@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace classic_games_launcher.view_models
+namespace classic_games_launcher.models.view_models
 {
     public class GamesListViewModel : INotifyPropertyChanged
     {

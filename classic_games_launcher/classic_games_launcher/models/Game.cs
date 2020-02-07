@@ -8,24 +8,16 @@ namespace classic_games_launcher.models
 {
     public class Game
     {
+        public int ID { get; set; }
         public string Name { get; set; }
-        public Platform Platform { get; set; }
+        public int Platform { get; set; }
+        public string ImagePath { get; set; }
 
-        public Game(string name, Platform platform)
+        public Game()
         {
-            this.Name = name;
-            this.Platform = platform;
+
         }
 
     }
 
-    public enum Platform
-    {
-        GAMECUBE,
-        PLAYSTATION_2,
-        WII,
-        WIIU,
-        GAMEBOY_ADVANCE,
-        NINTENDO_64
-    }
 }

@@ -6,13 +6,13 @@ using Xamarin.Forms;
 
 using classic_games_launcher.models;
 
-namespace classic_games_launcher.view_models
+namespace classic_games_launcher.models.view_models
 {
     public class GameViewModel
     {
         public Game Game { get; set; }
 
-        public Platform Platform
+        public int Platform
         {
             get
             {
